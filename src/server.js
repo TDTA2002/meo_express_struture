@@ -20,7 +20,7 @@ server.use("/views", viewConfig);
 
 /* Setup Api */
 import apiConfig from './routes';
-server.use("/api", apiConfig);
+server.use("/apis", apiConfig);
 
 
 server.listen(process.env.SERVER_PORT, () => {

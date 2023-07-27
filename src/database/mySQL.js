@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config()
 var mysql = require('mysql');
-var mysql = mysql.createConnection({
+var mySQL = mysql.createConnection({
     host: process.env.MY_SQL_HOST,
     user: process.env.MY_SQL_USER_NAME,
     password: process.env.MY_SQL_PASSWORD,
@@ -10,7 +10,7 @@ var mysql = mysql.createConnection({
 
 function mysqlConnect() {
     try {
-        mysql.connect(err => {
+        mySQL.connect(err => {
             if (err) {
                 console.error('error connecting: ', err.sqlMessage);
                 return;
@@ -25,5 +25,5 @@ function mysqlConnect() {
 
 module.exports = {
     mysqlConnect,
-    mysql
+    mySQL
 }

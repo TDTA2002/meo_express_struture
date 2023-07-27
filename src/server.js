@@ -6,9 +6,6 @@ dotenv.config()
 import express from "express";
 const server = express()
 
-/* Connect MySQL */
-import { mysqlConnect } from "./database/mySQL";
-mysqlConnect();
 
 /* Body parser */
 import bodyParser from 'body-parser';

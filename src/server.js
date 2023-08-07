@@ -15,6 +15,9 @@ server.use(bodyParser.json()); // support encoded bodies
 import viewConfig from './views';
 server.use("/views", viewConfig);
 
+import cors from 'cors';
+server.use(cors());
+
 /* Setup Api */
 import apiConfig from './routes';
 server.use("/apis", apiConfig);
@@ -23,3 +26,5 @@ server.use("/apis", apiConfig);
 server.listen(process.env.SERVER_PORT, () => {
     console.log(`Server đã chạy tại: ${process.env.SERVER_HOST}:${process.env.SERVER_PORT}/`)
 })
+
+    

@@ -1,23 +1,29 @@
-import express from "express";
+import express from 'express';
 const router = express.Router();
 
-import categoryModel from '../models/category.model';
+import productModel from '../models/product.model'
 
 router.use('/', async (req, res) => {
-    try {
-        let result = await categoryModel.readMany();
-        console.log("con phố đã lên đèn", result);
-        return res.status(201).json({
-            message: 'công việc quá nhiều điều phải chắc chở',
-            data: result.data 
-        });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({
-            message: "đùa à",
-            error: error.message
-        });
-    }
-});
+
+   let productOptions = req.body.options;
+   delete req.body.options;
+
+   let productInfor = req.body;
+
+   for (let i in productOptions) {
+       productOptions[i].product_option_pictures = {
+           create: productOptions[i].pictures
+       }
+       delete productOptions[i].pictures;
+   }
+
+   let result = await productModel.create(
+      {
+         productInfor,
+         productOptions
+      }
+   );
+
+})
 
 module.exports = router;

@@ -40,6 +40,7 @@ module.exports = {
             })
         }
     },
+
     update: async function (req, res) {
         try {
             let result = await categoryModel.update(req.params.categoryId, req.body);

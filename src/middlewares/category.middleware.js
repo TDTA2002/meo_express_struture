@@ -92,14 +92,10 @@ module.exports = {
                         )
                     }
                 }
-
                 if (i == "avatar") {
-
                 }
             }
         }
-
-
         if (JSON.stringify(req.body) === '{}') {
             return res.status(500).json(
                 {
@@ -107,8 +103,6 @@ module.exports = {
                 }
             )
         }
-
-
         next();
     },
 }
